@@ -1,8 +1,14 @@
+from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import RegistrationSerializer, LoginSerializer
 
+def register_page(request):
+    return render(request, 'accounts/register.html')
+
+def login_page(request):
+    return render(request, 'accounts/login.html')
 class RegistrationView(APIView):
     def post(self, request):
         serializer =  RegistrationSerializer(data=request.data)
